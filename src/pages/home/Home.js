@@ -18,8 +18,8 @@ const Home = () => {
   const centerText = 'Apskaitos sprendimai visiems'
 
   return (
-    <div className='container blended-background'>
-      {/* <CircleWithButtons buttons={mainMenu} text={centerText} size={120} color={'green'}/> */}
+    <div className='container laptop-background'>
+      <CircleWithButtons buttons={mainMenu} text={centerText} size={100} color={'green'}/>
     </div>
 
   );

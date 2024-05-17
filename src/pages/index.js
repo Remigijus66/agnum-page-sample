@@ -11,6 +11,7 @@ import Programs from "./Programs";
 import Contacts from "./Contacts";
 import ContactForm from "./ContactForm";
 import Reps from "./Reps"
+import MenuItemInformation from "./MenuItemInformation";
 const Index = () => {
 
 
@@ -26,6 +27,7 @@ const Index = () => {
       <Route path="/reps" element={<Reps />} />
       <Route path="/contacts" element={<Contacts />} />
       <Route path="/contact-form" element={<ContactForm />} />
+      <Route path="/menu-item/:menuNumber" element={<MenuItemInformation />} />
       <Route path="/*" element={<NotFound />} />
       </Routes>
       </BrowserRouter>

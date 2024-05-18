@@ -2,6 +2,7 @@ import React from "react";
 import CircleWithButtons from "./components/CircleWithButtons";
 import ProgramList from "./components/ProgramList";
 import Integrations from "./components/Integrations";
+import Recomendations from "./components/Recomendations";
 
 
 const Home = () => {
@@ -26,16 +27,13 @@ const size = 100
 
   return (
     <>
-      {/* <div className='container laptop-background'> */}
-
-        <div className='hero-picture'>
+         <div className='hero-picture'>
         <CircleWithButtons buttons={mainMenu} header={canvasHeader} text={centerText} size={size} color={clr} />
         </div>
     <ProgramList programs={programs} color={clr} size={size}/>
       < Integrations/>
-      <div className="box2"></div>
-      {/* </div> */}
-    </>
+      <Recomendations/>
+      </>
 
   );
 };

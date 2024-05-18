@@ -13,6 +13,7 @@ import ContactForm from "./ContactForm";
 import Reps from "./Reps"
 import MenuItemInformation from "./MenuItemInformation";
 import ProgramInfo from "./ProgramInfo";
+import IntegrationsPage from "./IntegrationsPage";
 const Index = () => {
 
 
@@ -27,6 +28,7 @@ const Index = () => {
       <Route path="/programs" element={<Programs />} />
       <Route path="/reps" element={<Reps />} />
       <Route path="/contacts" element={<Contacts />} />
+      <Route path="/integrations-page" element={<IntegrationsPage />} />
       <Route path="/contact-form" element={<ContactForm />} />
       <Route path="/menu-item/:menuNumber" element={<MenuItemInformation />} />
       <Route path="/program-info/:programName" element={<ProgramInfo />} />

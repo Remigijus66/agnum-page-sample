@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import agnumLogo from "../assets/img/agnum-logo.png"
+import agnumLogo from "../assets/img/agnum.png"
 const Header = () => {
 
 
   return (
           <header className='header'>
-<img  style={{marginRight: "30px" }} className='logo' src={agnumLogo} alt="logo" />
+<img  style={{marginRight: "30px", width: "150px"}} className='logo' src={agnumLogo} alt="logo" />
         <Link className='link' to="/">Apie mus</Link>
         <Link className='link' to="/servises">Paslaugos</Link>
         <Link className='link' to="/prices">Kainos </Link> 

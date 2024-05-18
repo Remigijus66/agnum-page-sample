@@ -4,12 +4,10 @@ import ToHome from "../components/ToHome";
 const ContactForm = () => {
 
   return (
-    <>
-      <div>
+      <div className='under-construction'>
         This page should contain Contact Form
-      </div>
       <ToHome />
-    </>
+      </div>
   );
 };
 

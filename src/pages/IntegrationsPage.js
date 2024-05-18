@@ -4,12 +4,10 @@ import ToHome from "../components/ToHome";
 const IntegrationsPage = () => {
 
   return (
-    <>
-    <div>
+    <div className='under-construction'>
 This page should contain information on integration . 
-    </div>
     <ToHome/>
-    </>
+    </div>
   );
 };
 

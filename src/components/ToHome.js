@@ -6,7 +6,7 @@ const ToHome = () => {
 
   return (
     <div >
-        <Link className='btn' to="/">Atgal į pagrindinį puslapį</Link>
+      <Link className='brown-button' to="/">Atgal į pagrindinį puslapį</Link>
     </div>
 
   );

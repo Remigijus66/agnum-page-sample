@@ -4,12 +4,10 @@ import ToHome from "../components/ToHome";
 const Contacts = () => {
 
   return (
-  <>
-  <div>
+  <div className='under-construction'>
 This page should contain Contacts 
-  </div>
   <ToHome/>
-  </>
+  </div>
   );
 };
 

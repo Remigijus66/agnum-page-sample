@@ -3,8 +3,10 @@ import Pages from "./pages/index";
 
 function App() {
   return (
+    <div className='app'>
     <div className='container'>
    <Pages />
+    </div>
     </div>
   );
 }

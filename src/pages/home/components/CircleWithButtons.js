@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { drawSquare, wrapText, calculateTextHeight, drawArrowToLowerRight,  drawArrowToLowerLeft} from '../../../helper/utils';
 
 const CircleWithButtons = ({ buttons, header,  text, size, color }) => {
   const nav = useNavigate()
@@ -9,58 +10,21 @@ const CircleWithButtons = ({ buttons, header,  text, size, color }) => {
   const navigate = (number) => {
     nav(`/menu-item/${number}`)
   }
-  const wrapText = (context, text, x, y, maxWidth, lineHeight) => {
-    const words = text.split(' ');
-    let line = '';
-    let testLine = '';
-    let testWidth = 0;
-
-    for (let i = 0; i < words.length; i++) {
-      testLine = line + words[i] + ' ';
-      testWidth = context.measureText(testLine).width;
-      if (testWidth > maxWidth && i > 0) {
-        context.fillText(line, x, y);
-        line = words[i] + ' ';
-        y += lineHeight;
-      } else {
-        line = testLine;
-      }
-    }
-    context.fillText(line, x, y);
-  }
-  const calculateTextHeight = (context, text, maxWidth, lineHeight) => {
-    const words = text.split(' ');
-    let line = '';
-    let testLine = '';
-    let testWidth = 0;
-    let height = 0;
-
-    for (let i = 0; i < words.length; i++) {
-      testLine = line + words[i] + ' ';
-      testWidth = context.measureText(testLine).width;
-      if (testWidth > maxWidth && i > 0) {
-        height += lineHeight;
-        line = words[i] + ' ';
-      } else {
-        line = testLine;
-      }
-    }
-    height += lineHeight;
-    return height;
-  }
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     const background1 = new Image();
     const background2 = new Image();
-    background1.src = 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/empty-screen-laptop.png?raw=true';
+    background1.src = 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/lady-with-laptop.png?raw=true';
     background1.onload = () => {
-      ctx.drawImage(background1, 0, 0, size*14, size*7);
-      background2.src = 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/lady-with-laptop.png?raw=true';
+      ctx.drawImage(background1, size *1.95, size * .20, size * 10.10, size * 6.50);
+      // ctx.drawImage(background1, 0, 0, size*14, size*7);// white scr laptop setup
+      background2.src ='https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/empty-screen-laptop-removebg.png?raw=true';
       background2.onload = () => {
-        ctx.drawImage(background2, 195, 20, 1010, 650);
-        // ctx.drawImage(background2, size*3.8, size, size*8, size*5.4);
+        ctx.drawImage(background2, 0, 0, size*14, size*7); 
+        // ctx.drawImage(background2, 195, 20, 1010, 650); // lady setup
+        // ctx.drawImage(background2, size*3.8, size, size*8, size*5.4); // removed bg lady setup
        
 
     
@@ -72,33 +36,6 @@ const CircleWithButtons = ({ buttons, header,  text, size, color }) => {
       const endAngle1 = Math.PI / 3;
       const startAngle2 = Math.PI / 3 * 2;
       const endAngle2 = Math.PI / 3 * 4;
-
-      const drawSquare = (squareColor, squareX, squareY, squareSize) => {
-        ctx.fillStyle = squareColor;
-        ctx.fillRect(squareX, squareY, squareSize, squareSize);
-      }
-      const drawArrowToLowerRight = (arrowColor, arrowCenterX, arrowCenterY, arrowSize) => {
-        ctx.strokeStyle = arrowColor;
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(arrowCenterX - arrowSize / 2, arrowCenterY - arrowSize / 2); // Start point of the arrow
-        ctx.lineTo(arrowCenterX + arrowSize / 2, arrowCenterY + arrowSize / 2); // Main line of the arrow
-        ctx.moveTo(arrowCenterX + arrowSize / 4, arrowCenterY + arrowSize / 2); // Left side of arrowhead
-        ctx.lineTo(arrowCenterX + arrowSize / 2, arrowCenterY + arrowSize / 2); // Connect to main line
-        ctx.lineTo(arrowCenterX + arrowSize / 2, arrowCenterY + arrowSize / 4); // Right side of arrowhead
-        ctx.stroke();
-      }
-      const drawArrowToLowerLeft = (arrowColor, arrowCenterX, arrowCenterY, arrowSize) => {
-        ctx.strokeStyle = arrowColor;
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(arrowCenterX + arrowSize / 2, arrowCenterY - arrowSize / 2); // Start point of the arrow
-        ctx.lineTo(arrowCenterX - arrowSize / 2, arrowCenterY + arrowSize / 2); // Main line of the arrow
-        ctx.moveTo(arrowCenterX - arrowSize / 4, arrowCenterY + arrowSize / 2); // Right side of arrowhead
-        ctx.lineTo(arrowCenterX - arrowSize / 2, arrowCenterY + arrowSize / 2); // Connect to main line
-        ctx.lineTo(arrowCenterX - arrowSize / 2, arrowCenterY + arrowSize / 4); // Left side of arrowhead
-        ctx.stroke();
-      }
 
       // Draw the circle segments
       const radius = size;
@@ -160,8 +97,8 @@ const CircleWithButtons = ({ buttons, header,  text, size, color }) => {
         const correction = calculateTextHeight(ctx, button.text, buttonWidth - buttonHeight, size / 8)
         wrapText(ctx, button.text, (Math.cos(angle) > 0 ? buttonCorrectedX + buttonHeight / 2 : buttonCorrectedX - buttonHeight / 2), correction > size / 8 ? buttonY - correction / 4 : buttonY, buttonWidth - buttonHeight, size / 8)
 
-        drawSquare(color, (Math.cos(angle) > 0 ? buttonCorrectedX - buttonWidth / 2 : buttonCorrectedX + buttonHeight / 2), buttonY - buttonHeight / 2, buttonHeight)
-        Math.cos(angle) > 0 ? drawArrowToLowerRight('white', buttonCorrectedX - buttonHeight, buttonY, buttonHeight / 3) : drawArrowToLowerLeft('white', buttonCorrectedX + buttonHeight, buttonY, buttonHeight / 3)
+        drawSquare(ctx, color, (Math.cos(angle) > 0 ? buttonCorrectedX - buttonWidth / 2 : buttonCorrectedX + buttonHeight / 2), buttonY - buttonHeight / 2, buttonHeight)
+        Math.cos(angle) > 0 ? drawArrowToLowerRight(ctx, 'white', buttonCorrectedX - buttonHeight, buttonY, buttonHeight / 3) : drawArrowToLowerLeft(ctx, 'white', buttonCorrectedX + buttonHeight, buttonY, buttonHeight / 3)
         ctx.strokeStyle = 'black';
         ctx.lineWidth = 2;
 

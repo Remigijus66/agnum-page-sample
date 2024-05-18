@@ -22,7 +22,7 @@ const canvasHeader ='Profesionalūs apskaitos sprendimai Jūsų verslui';
     <>
       {/* <div className='container laptop-background'> */}
 
-        <div className='round-menu'>
+        <div className='hero-picture'>
         <CircleWithButtons buttons={mainMenu} header={canvasHeader} text={centerText} size={100} color={'green'} />
         </div>
       <div className="box"></div>

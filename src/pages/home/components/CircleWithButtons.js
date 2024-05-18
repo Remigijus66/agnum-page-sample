@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const CircleWithButtons = ({ buttons, text, size, color }) => {
+const CircleWithButtons = ({ buttons, header,  text, size, color }) => {
   const nav = useNavigate()
 
   const canvasRef = useRef(null);
@@ -52,15 +52,21 @@ const CircleWithButtons = ({ buttons, text, size, color }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    const background = new Image();
-    background.src = 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/laptop-with-lady.png?raw=true';
-    background.onload = () => {
-      ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-      // };
-      // Additional drawing code can go here
+    const background1 = new Image();
+    const background2 = new Image();
+    background1.src = 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/empty-screen-laptop.png?raw=true';
+    background1.onload = () => {
+      ctx.drawImage(background1, 0, 0, size*14, size*7);
+      background2.src = 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/lady-with-laptop.png?raw=true';
+      background2.onload = () => {
+        ctx.drawImage(background2, 195, 20, 1010, 650);
+        // ctx.drawImage(background2, size*3.8, size, size*8, size*5.4);
+       
+
+    
       // Calculate the center of the canvas
-      const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
+      const centerX = canvas.width / 2 - size *1.5;
+      const centerY = canvas.height / 2 + size *0.7;
 
       const startAngle1 = Math.PI / 3 * 5;
       const endAngle1 = Math.PI / 3;
@@ -97,10 +103,7 @@ const CircleWithButtons = ({ buttons, text, size, color }) => {
       // Draw the circle segments
       const radius = size;
       ctx.beginPath();
-      // ctx.arc(centerX, centerY, radius, endAngle1, startAngle2);
       ctx.arc(centerX, centerY, radius, startAngle1, endAngle1);
-      // ctx.arc(centerX, centerY, radius, endAngle2, startAngle1,);
-
       ctx.stroke();
 
       ctx.beginPath();
@@ -122,14 +125,12 @@ const CircleWithButtons = ({ buttons, text, size, color }) => {
       ctx.font = `${size / 6}px Arial`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      // ctx.fillText('Apskaitos sprendimai visiems', innerX, innerY);
       const correction = calculateTextHeight(ctx, text, innerRadius, size / 5)
       wrapText(ctx, text, innerX, innerY - correction / 4, innerRadius, size / 5)
 
 
       // Calculate positions for the buttons
-      // console.log(buttons)
-      // const hours = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11];
+     
       const angleStep = Math.PI / 6; // Angle between each hour
       const buttonRadius = radius + radius * 2 / 3; // Distance of buttons from the circle
 
@@ -175,17 +176,24 @@ const CircleWithButtons = ({ buttons, text, size, color }) => {
             clickY >= buttonY - buttonHeight / 2 &&
             clickY <= buttonY + buttonHeight / 2
           ) {
-            // console.log(`Button ${button.hour} clicked!`);
+           
             navigate(button.hour)
           }
         });
-
       });
-      //here 
+
+
+      const headerX = canvas.width / 2 -250;
+      const headerY = canvas.height / 2 -230 ;
+      ctx.fillStyle = 'black';
+      ctx.font = `500 ${size / 3}px Times`;
+      // const correction = calculateTextHeight(ctx, text, innerRadius, size / 5)
+      wrapText(ctx, header, headerX, headerY, 400, size / 3)
+    };
     };
   }, []);
 
-  return <canvas ref={canvasRef} width={800} height={800} />;
+  return <canvas ref={canvasRef} width={size*14} height={size*7} />;
 };
 
 export default CircleWithButtons;

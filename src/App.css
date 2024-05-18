@@ -1,5 +1,7 @@
-.App {
-  text-align: center;
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .link {
@@ -26,45 +28,60 @@
   background-color: aquamarine;
 }
 
-.laptop-background {
+.laptop-backgroundd {
   height: 100vh;
+  position: relative;
   /* Full viewport height */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 20px; */
 
-  background-image: url('https://static.vecteezy.com/system/resources/previews/023/354/541/non_2x/empty-screen-laptop-vector.jpg');
-  background-size: 50%;
+  background-image: url('https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/laptop-with-lady.png?raw=true');
+  /* background-image: url('https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/laptop-white.png?raw=true'); */
+  /* background-size: 100%; */
   /* background-blend-mode: overlay; */
+  background-size: 80%;
 
   background-repeat: no-repeat;
   background-position-y: top;
   background-position-x: center;
 }
 
-.blended-background {
-  height: 100vh;
-  /* Full viewport height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  padding: 20px;
+.box {
+  width: 300px;
+  height:50px;
+  background-color: aqua;
+  margin: 30px;
 
-  background-image: url('https://cdn.create.vista.com/api/media/small/7920667/stock-photo-laptop-with-blank-screen-isolated-on-white'), url('https://www.shutterstock.com/image-photo/portrait-happy-young-woman-holding-260nw-1427847758.jpg');
-  background-size: 90%, 50%;
-  background-blend-mode: overlay;
-
-  background-repeat: no-repeat, no-repeat;
-  background-position-y: top, 90%;
-  background-position-x: center, 60%;
 }
+
+.box1 {
+  width: 300px;
+  height: 100px;
+  background-color: blue;
+  margin: 30px;
+
+}
+
+.box2 {
+  width: 300px;
+  height: 150px;
+  background-color: blueviolet;
+  margin: 30px;
+
+}
+
+.round-menuu {
+  position: absolute;
+  left: 500px;
+  top: 100px;
+}
+
+
 
 /* .App-logo {
   height: 40vmin;

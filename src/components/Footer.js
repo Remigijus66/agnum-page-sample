@@ -5,12 +5,10 @@ const Footer = () => {
 
 
   return (
-    <div >
       <footer className='footer'>
 This is footer
       </footer>
-    </div>
-
+ 
   );
 };
 export default Footer

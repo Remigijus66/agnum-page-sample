@@ -1,5 +1,7 @@
 import React from "react";
 import CircleWithButtons from "./components/CircleWithButtons";
+import ProgramList from "./components/ProgramList";
+import Integrations from "./components/Integrations";
 
 
 const Home = () => {
@@ -18,15 +20,19 @@ const Home = () => {
   const centerText = 'Apskaitos sprendimai visiems';
 const canvasHeader ='Profesionalūs apskaitos sprendimai Jūsų verslui';
 
+const programs = [{name:'ELIT', text: ' here goes the text for elit program,text for elit program'}, {name:'AGNUM', text: ' here goes the text for agnum program'},{name:'TERMINALINIS AGNUM', text: ' here goes the text for terminalinis agnum program'},{name:'VIRTUALUS AGNUM', text: 'here goes the text for virtualus agnum program'}]
+const clr = 'green'
+const size = 100
+
   return (
     <>
       {/* <div className='container laptop-background'> */}
 
         <div className='hero-picture'>
-        <CircleWithButtons buttons={mainMenu} header={canvasHeader} text={centerText} size={100} color={'green'} />
+        <CircleWithButtons buttons={mainMenu} header={canvasHeader} text={centerText} size={size} color={clr} />
         </div>
-      <div className="box"></div>
-      <div className="box1"></div>
+    <ProgramList programs={programs} color={clr} size={size}/>
+      < Integrations/>
       <div className="box2"></div>
       {/* </div> */}
     </>

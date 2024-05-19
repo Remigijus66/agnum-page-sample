@@ -7,7 +7,7 @@ const Integrations = () => {
     nav('/integrations-page')
   }
  const integrationsLogo = [ 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/telema.png?raw=true','https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/edisoft.png?raw=true','https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/shopify.png?raw=true', 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/ivesk.png?raw=true', 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/prestashop.png?raw=true']
- const recomendationsLogo = ['https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/accountingExperts.png?raw=true', 'https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/mokivezi.png?raw=true','https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/dzukija.png?raw=true','https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/triumph.png?raw=true','https://github.com/Remigijus66/agnum-page-sample/blob/dev/src/assets/img/diglita.png?raw=true' ]
+
   return (
       <div className='home-component'>
         <h2>B2B integracijos</h2>

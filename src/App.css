@@ -25,6 +25,8 @@
   background-color: brown;
   color: white;
   border-radius: 10px;
+  margin: 5px;
+ 
 }
 .gray-button {
   padding: 10px 30px;
@@ -93,6 +95,9 @@ flex-wrap: wrap;
 .fl2 {
   flex: 2;
 }
+.fl4 {
+  flex: 4;
+}
 .al-start {
   align-items: start;
 }
@@ -115,6 +120,7 @@ flex-wrap: wrap;
   flex-wrap: wrap;
 
 }
+
 
 .footer {
   margin-top: 10px;
@@ -141,7 +147,6 @@ margin-top: -15px;
 }
 .under-construction {
   min-height: 80vh;
-  /* height: 800px; */
   padding: 100px;
   display: flex;
   flex-direction: column;

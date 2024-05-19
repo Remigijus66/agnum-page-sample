@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CircleWithButtons from "./components/CircleWithButtons";
 import ProgramList from "./components/ProgramList";
 import Integrations from "./components/Integrations";

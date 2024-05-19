@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <>
-      {!(window.screen.width < 700) && <footer className='footer'>
+      {!(window.screen.width <= 700) && <footer className='footer'>
         <img style={{ margin: "0px 70px", width: "140px" }} className='logo' src={agnumLogo} alt="logo" />
         <button className='gray-button'>Išbandyk nemokamai</button>
         <span className='contacts'>
@@ -22,11 +22,10 @@ const Footer = () => {
           <p>e.lp. elekronins.pastas@pastas.lt</p>
         </span>
       </footer>}
-      {(window.screen.width < 700) && <footer className='footer'>
-        <img style={{ margin: "0px 30px", width: "140px" }} className='logo' src={agnumLogo} alt="logo" />
+      {(window.screen.width <= 700) && <footer className='footer'>
+        <img style={{ margin: "0px 30px", width: "100px" }} className='logo' src={agnumLogo} alt="logo" />
         <button className='gray-button'>Išbandyk nemokamai</button>
-      
-      </footer>}
+            </footer>}
 
     </>
 
